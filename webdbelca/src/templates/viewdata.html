@@ -1,0 +1,182 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<div class="card" style="width: 97%; margin: 20px; overflow: auto;">
+    <table class="table table-bordered" style="width: auto; margin: 20px; font-size: 13px; text-align: center;">
+        <thead>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Rut</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Serie</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <td>#</td>
+                <td>{{d.nombre}}</td>
+                <td>{{d.apellido}}</td>
+                <td>{{d.rut}}</td>
+                <td>telefono</td>
+                <td>{{d.modelo}}</td>
+                <td>{{d.marca}}</td>
+                <td>{{d.serie}}</td>
+                <td>Activo</td>
+                <td style="display: flex;justify-content: center;">
+                    <button style="margin: 5px;" class="btn btn-primary btn-sm" id="btn-open" data-bs-toggle='modal'
+                        data-bs-target="#abrir"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-folder2-open" viewBox="0 0 16 16">
+                            <path
+                                d="M1 3.5A1.5 1.5 0 0 1 2.5 2h2.764c.958 0 1.76.56 2.311 1.184C7.985 3.648 8.48 4 9 4h4.5A1.5 1.5 0 0 1 15 5.5v.64c.57.265.94.876.856 1.546l-.64 5.124A2.5 2.5 0 0 1 12.733 15H3.266a2.5 2.5 0 0 1-2.481-2.19l-.64-5.124A1.5 1.5 0 0 1 1 6.14zM2 6h12v-.5a.5.5 0 0 0-.5-.5H9c-.964 0-1.71-.629-2.174-1.154C6.374 3.334 5.82 3 5.264 3H2.5a.5.5 0 0 0-.5.5zm-.367 1a.5.5 0 0 0-.496.562l.64 5.124A1.5 1.5 0 0 0 3.266 14h9.468a1.5 1.5 0 0 0 1.489-1.314l.64-5.124A.5.5 0 0 0 14.367 7z" />
+                        </svg></button>
+                    <button style="margin: 5px;" class="btn btn-primary btn-sm" id="btn-edit" data-bs-toggle='modal'
+                        data-bs-target="#editar"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path
+                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                            <path fill-rule="evenodd"
+                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                        </svg></button>
+
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- editar -->
+    <div class="modal fade" id="abrir" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: rgb(62, 107, 255);">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: rgb(255, 255, 255);">Abrir cliente</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: rgb(244, 244, 244)">
+                    <div>
+                        <h3 style="text-align: center;">Cliente</h3>
+                        <hr>
+                            <table class="table sm-table table-active" style="font-size: 12px; text-align: center;">
+                                <thead>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Marca</th>
+                                    <th scope="col">Modelo</th>
+                                    <th scope="col">Serie</th>
+                                </thead>
+                                <tbody>
+                                    <td>Hector quisbert</td>
+                                    <td>brother</td>
+                                    <td>DCP-T720DW</td>
+                                    <td>U66054F2H648981</td>
+                                </tbody>
+                            </table>
+                        
+                        <table class="table table-bordered table-active" style="font-size: 12px;">
+                            <h3 style="text-align: center;">Ficha tecnica</h3>
+                            <hr>
+                            <thead style=" text-align: center;">
+                                <th scope="col">Diagnostico</th>
+                                <th scope="col">Tranajo realizado</th>
+                                <th scope="col">Presupuesto</th>
+                                <th scope="col">Fecha</th>
+                            </thead>
+                            <tbody>
+                                {% for i in data %}
+                                <tr>
+                                    <td>{{i.nombre}}</td>
+                                    <td>{{i.apellido}}</td>
+                                    <td>{{i.marca}}</td>
+                                    <td>{{i.modelo}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <div style="display: flex; justify-content: end;">
+                            <li style="margin-bottom: 10px; list-style: none;"><a class="btn btn-primary btn-sm" id="btn-buscar" href="{{ url_for('buttonaddrepair') }}">Añadir reparacion</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- cierre editar -->
+<!-- modal abrir -->
+<div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar cliente</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body" style="margin: 10px;">
+                    <form action="/editar" method="post">
+                        <!-- aqui va lo editable del modal -->
+                        <form id=editform action="/editar/0" method="post">
+                            <div class="col mb-3">
+                                <div class="col">
+                                    <label>Nombre</label>
+                                    <input type="text" class="form-control mb-3" id='nombre' name="name">
+                                </div>
+                                <div class="col">
+                                    <label>Apellido</label>
+                                    <input type="text" class="form-control mb-3" id='apellido' name="lastname">
+                                </div>
+                                <div class="col">
+                                    <label>Rut</label>
+                                    <input type="text" class="form-control mb-3" id='rut' name="rut">
+                                </div>
+                                <div class="col">
+                                    <label>Marca</label>
+                                    <input type="text" class="form-control mb-3" id='marca' name="brand">
+                                </div>
+                                <div class="col">
+                                    <label>Modelo</label>
+                                    <input type="text" class="form-control mb-3" id='modelo' name="model">
+                                </div>
+                                <div class="col">
+                                    <label>Serie</label>
+                                    <input type="text" class="form-control mb-3" id='serie' name="serie">
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary mb-3 mt-4" type="submit">editar datos</button>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- cierre abrir -->
+</div>
+<div class="modal fade" id="buscarr" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Buscar cliente</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/buscar" method="post">
+                    <!-- aqui va lo editable del modal -->
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="serie"
+                        name="serie">
+            </div>
+            <div class="modal-footer">
+                <button id='serie' type="submit" class="btn btn-primary" methods="POST">Buscar</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

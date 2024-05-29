@@ -1,0 +1,57 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+header {
+    background-color: hsla(222, 98%, 66%, 0.914);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+.wrapper {
+    display: flex;
+    height: calc(100% - 50px); /* Restamos la altura del header y del footer */
+}
+aside {
+    width: 15%;
+    background-color: #e8dddd;
+}
+aside ul {
+    list-style-type: none;
+    padding: 0;
+}
+aside ul li {
+    padding: 10px 0;
+    text-align: center;
+}
+aside ul li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+footer {
+    background-color: hsla(222, 82%, 42%, 0.914);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #333;
+    color: #fff;
+}

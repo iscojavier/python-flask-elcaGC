@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+    
+    
+{% block content %}
+    <form id="editForm" action="/editar/0" method="POST">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+    {% endblock %}
